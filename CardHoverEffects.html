@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Css Responsive Card Hover Effects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .card {
+        width: 600px;
+        height: 350px;
+        border-radius: 20px;
+        /* background-color: #ccc; */
+        position: relative;
+        display: flex;
+        align-items: center;
+        transition: 0.5s;
+      }
+      .circle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .circle::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #d83133;
+        clip-path: circle(120px at center);
+        transition: 0.5s;
+      }
+      .card:hover .circle::before {
+        background-color: #0065c3;
+        clip-path: circle(400px at center);
+      }
+      .card img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 300px;
+        pointer-events: none;
+        transition: 0.5s;
+      }
+      .card:hover img {
+        height: 500px;
+        left: 72%;
+      }
+
+      .card .content {
+        position: relative;
+        width: 50%;
+        padding: 20px 20px 20px 40px;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.5s;
+      }
+      .card:hover .content {
+        visibility: visible;
+        opacity: 1;
+        left: 0;
+      }
+      .content h2 {
+        font-size: 2em;
+        line-height: 1em;
+        text-transform: uppercase;
+        color: #fff;
+      }
+      .content p {
+        color: white;
+      }
+      .content a {
+        color: #000;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 10px 20px;
+        margin-top: 10px;
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      @media (max-width: 780px) {
+        .card {
+          /* width: auto; */
+          max-width: 450px;
+          display: flex;
+          align-items: flex-start;
+        }
+        .card:hover {
+          height: 650px;
+        }
+        .card .content {
+          width: 100%;
+          /* left: 0; */
+          padding: 40px;
+        }
+        .card:hover img {
+          top: 65%;
+          left: 50%;
+          height: 300px;
+        }
+
+        @media (max-width: 450px) {
+          .card {
+            max-width: 350px;
+            display: flex;
+            align-items: flex-start;
+          }
+          .card:hover {
+            height: 600px;
+          }
+          .card .content {
+            width: 100%;
+            padding: 30px;
+          }
+          .card:hover img {
+            top: 70%;
+            left: 50%;
+            height: 300px;
+          }
+
+          @media (max-width: 320px) {
+            .card {
+              max-width: 300px;
+              display: flex;
+              align-items: flex-start;
+            }
+            .card:hover {
+              height: 500px;
+            }
+            .card .content {
+              width: 100%;
+              padding: 20px;
+            }
+            .card:hover img {
+              height: 200px;
+              top: 75%;
+              left: 50%;
+            }
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="circle"></div>
+      <div class="content">
+        <h2>Pepsi Cola</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat
+          voluptatibus sequi optio earum omnis atque ducimus esse assumenda
+          voluptate ad.
+        </p>
+        <a href="#">Buy Now</a>
+      </div>
+      <img
+        src="https://www.pepsi.com/en-us/uploads/images/can-real-sugar-reg.png?mtime=20180110134758"
+        alt="Pepsi Cola image"
+      />
+    </div>
+  </body>
+</html>
